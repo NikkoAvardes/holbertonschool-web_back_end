@@ -3,8 +3,10 @@
 Ce module fournit une fonction pour calculer la somme d'une liste de flottants.
 """
 
+import typing
 
-def sum_list(input_list: list[float]) -> float:
+
+def sum_list(input_list: typing.List[float]) -> float:
     """
     Calcule la somme des éléments d'une liste de nombres flottants.
 

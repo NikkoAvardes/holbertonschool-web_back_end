@@ -1,20 +1,22 @@
 #!/usr/bin/env python3
 """
-Module 3-tasks.py
------------------
-Ce module contient des fonctions asynchrones pour la gestion de tâches
-avec asyncio en Python. Il permet de créer et d'exécuter des coroutines
-de manière concurrente, en utilisant des tâches asyncio.
-
-Fonctions principales :
-- task_wait_random : Crée une tâche asynchrone qui attend un temps aléatoire.
-
+Ce module fournit une fonction utilitaire pour créer une tâche asynchrone
+qui attend un délai aléatoire.
 """
-
 import asyncio
 
 wait_random = __import__('0-basic_async_syntax').wait_random
 
 
 def task_wait_random(max_delay: int) -> asyncio.Task:
+    """
+    Crée et retourne une tâche asyncio pour exécuter wait_random
+    avec un délai maximal donné.
+
+    Args:
+        max_delay (int): Le délai maximal en secondes pour l'attente aléatoire.
+
+    Returns:
+        asyncio.Task: La tâche asynchrone créée pour l'attente aléatoire.
+    """
     return asyncio.create_task(wait_random(max_delay))

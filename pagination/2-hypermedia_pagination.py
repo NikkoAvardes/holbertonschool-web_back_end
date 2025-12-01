@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """
 Module : 2-hypermedia_pagination
-Ce module fournit une classe Server pour paginer une base de données de prénoms populaires
+Ce module fournit une classe Server pour paginer une base de données de
 et retourner des informations de pagination au format hypermédia.
 
 Fonctions principales :
     - Server.dataset() : Charge et met en cache le dataset CSV.
     - Server.get_page(page, page_size) : Retourne une page de données paginées.
-    - Server.get_hyper(page, page_size) : Retourne une page de données avec métadonnées hypermédia.
+    - Server.get_hyper(page, page_size) : Retourne une page de données avec
+    métadonnées hypermédia.
 """
 import csv
 import math
@@ -18,7 +19,8 @@ index_range = __import__('0-simple_helper_function').index_range
 
 class Server:
     """
-    Classe Server pour paginer une base de données de prénoms populaires et fournir des métadonnées hypermédia.
+    Classe Server pour paginer une base de données de prénoms populaires
+    et fournir des métadonnées hypermédia.
 
     Attributs :
         DATA_FILE (str): Chemin du fichier CSV contenant les données.
@@ -73,7 +75,7 @@ class Server:
             page_size (int): Nombre d'éléments par page.
 
         Returns:
-            Dict[str, Any]: Dictionnaire contenant la page de 
+            Dict[str, Any]: Dictionnaire contenant la page de
             données et les métadonnées :
                 - page_size : nombre d'éléments dans la page
                 - page : numéro de la page courante

@@ -19,7 +19,7 @@ def index_range(page: int, page_size: int) -> typing.Tuple[int, int]:
         page_size (int): Le nombre d'éléments par page.
 
     Returns:
-        Tuple[int, int]: Un tuple (start, end) où start est l'indice de début 
+        Tuple[int, int]: Un tuple (start, end) où start est l'indice de début
         (inclus) et end est l'indice de fin (exclu).
     """
     start = (page - 1) * page_size

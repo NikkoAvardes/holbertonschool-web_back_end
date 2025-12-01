@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python3
 """
 Module : 1-simple_pagination
@@ -17,7 +16,7 @@ index_range = __import__('0-simple_helper_function').index_range
 
 class Server:
     """
-    Classe Server pour paginer une base de données de prénoms populaires. 
+    Classe Server pour paginer une base de données de prénoms populaires.
 
     Attributs :
         DATA_FILE (str): Chemin du fichier CSV contenant les données.

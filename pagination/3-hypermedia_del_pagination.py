@@ -4,7 +4,7 @@ Deletion-resilient hypermedia pagination
 """
 
 import csv
-from typing import List, Dict
+from typing import List, Dict, Optional
 
 
 class Server:
@@ -14,7 +14,7 @@ class Server:
 
     def __init__(self):
         """Initialize the Server instance.
-        
+
         Sets up private attributes for caching the dataset
         and indexed dataset to improve performance.
         """
@@ -44,7 +44,7 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None,
-                        page_size: int = 10) -> Dict[str, int]:
+                        page_size: int = 10) -> Dict[str, Optional[int]]:
         """Get a page of data using deletion-resilient pagination."""
         indexed_data = self.indexed_dataset()
         assert isinstance(
@@ -54,14 +54,12 @@ class Server:
         current_index = index
         collected = 0
 
-        # Collect data while handling potential gaps from deletions
         while collected < page_size and current_index < len(indexed_data):
             if current_index in indexed_data:
                 data.append(indexed_data[current_index])
                 collected += 1
             current_index += 1
 
-        # Determine next page starting index
         next_index = current_index if collected == page_size else None
 
         return {

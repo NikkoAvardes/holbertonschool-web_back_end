@@ -13,11 +13,6 @@ class Server:
     DATA_FILE = "Popular_Baby_Names.csv"
 
     def __init__(self):
-        """Initialize the Server instance.
-
-        Sets up private attributes for caching the dataset
-        and indexed dataset to improve performance.
-        """
         self.__dataset = None
         self.__indexed_dataset = None
 
@@ -43,27 +38,15 @@ class Server:
             }
         return self.__indexed_dataset
 
-    def get_hyper_index(self, index: int = None,
-                        page_size: int = 10) -> Dict:
-        """Get a page of data using deletion-resilient pagination."""
-        indexed_data = self.indexed_dataset()
-        data_len = len(indexed_data)
-
-        # Verify that index is in valid range
-        assert isinstance(index, int) and 0 <= index < data_len
-
-        data = []
-        current_index = index
-
-        # Collect the requested number of items, skipping deleted ones
-        while len(data) < page_size and current_index < data_len:
-            if current_index in indexed_data:
-                data.append(indexed_data[current_index])
-            current_index += 1
-
-        # Determine next index for subsequent requests
-        next_index = current_index if current_index < data_len else None
-
+    def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
+        """Return a dictionary containing pagination information."""
+        assert index is not None and isinstance(index, int) and index >= 0
+        indexing = self.indexed_dataset()
+        assert index < len(indexing)
+        keys = sorted([i for i in indexing.keys() if i >= index])
+        page_keys = keys[:page_size]
+        data = [indexing[i] for i in page_keys]
+        next_index = keys[page_size] if page_size < len(keys) else None
         return {
             'index': index,
             'next_index': next_index,

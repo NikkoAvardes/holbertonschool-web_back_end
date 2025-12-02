@@ -66,7 +66,7 @@ class Server:
         return data[start:end]
 
     def get_hyper(self, page: int = 1,
-                  page_size: int = 10) -> typing.Dict[str, typing.Any]:
+                  page_size: int = 10) -> typing.Dict[str, int]:
         """
         Retourne une page de données paginées avec des métadonnées hypermédia.
 

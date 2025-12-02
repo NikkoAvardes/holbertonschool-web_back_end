@@ -12,7 +12,7 @@ Fonctions principales :
 """
 import csv
 import math
-import typing
+from typing import List, Dict
 
 index_range = __import__('0-simple_helper_function').index_range
 
@@ -34,7 +34,7 @@ class Server:
         """
         self.__dataset = None
 
-    def dataset(self) -> typing.List[list]:
+    def dataset(self) -> List[List]:
         """
         Charge le dataset à partir du fichier CSV et le met en cache.
         Retourne :
@@ -48,7 +48,7 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1,
-                 page_size: int = 10) -> typing.List[list]:
+                 page_size: int = 10) -> List[List]:
         """
         Retourne une page de données paginées.
 
@@ -66,7 +66,7 @@ class Server:
         return data[start:end]
 
     def get_hyper(self, page: int = 1,
-                  page_size: int = 10) -> typing.Dict[str, int]:
+                  page_size: int = 10) -> Dict[str, int]:
         """
         Retourne une page de données paginées avec des métadonnées hypermédia.
 

@@ -139,3 +139,7 @@ Thumbs.db
 .copilot*
 copilot.log
 copilot-*.log
+NoSQL/dump/logs/nginx.metadata.json
+.gitignore
+NoSQL/dump.zip
+NoSQL/dump/logs/nginx.bson

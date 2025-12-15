@@ -147,9 +147,9 @@ NoSQL/dump/logs/nginx.bson
 *.json
 Configuration files/
 node_modules/
-ES6_basic/.eslintrc.js
-ES6_basic/babel.config.js
-ES6_basic/nodesource_setup.sh
-ES6_classes/babel.config.js
+*/.eslintrc.js
+*/babel.config.js
+*/nodesource_setup.sh
+*/babel.config.js
 .gitignore
-ES6_classes/.eslintrc.js
+

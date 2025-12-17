@@ -153,3 +153,4 @@ node_modules/
 */babel.config.js
 .gitignore
 
+ES6_promise/utils.js

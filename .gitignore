@@ -154,3 +154,5 @@ node_modules/
 .gitignore
 
 ES6_promise/utils.js
+Node_JS_basic/database.csv
+
